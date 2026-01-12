@@ -1,0 +1,19 @@
+---
+interface Stat {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  stats: Stat[];
+  imageKeyword: string;
+}
+
+const { title, description, stats, imageKeyword } = Astro.props;
+const seed = Math.floor(Math.random() * 1000);
+
+// DÜZELTME: Kelimeyi bölmüyoruz.
+const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(imageKeyword + ', professional photography, modern office environment, bright')}?width=800&height=1000&nologo=true&seed=${seed}&model=flux`;
+---
